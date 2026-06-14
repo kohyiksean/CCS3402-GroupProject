@@ -7,7 +7,7 @@ import lombok.Data;
 @Entity
 @Table(name = "tenant")
 public class Tenant{
-    @id
+    @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tenant_seq")
     @SequenceGenerator(name = "tenant_seq", sequenceName = "tenant_sequence", allocationSize = 1)
     private Long id;

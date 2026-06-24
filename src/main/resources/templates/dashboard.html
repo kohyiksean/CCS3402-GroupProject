@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>RoomEstate — Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
@@ -16,7 +17,7 @@
 <div class="hero">
     <div class="hero-content">
         <h1 class="hero-title">
-            Welcome, <span th:text="${loggedInUser.name}">User</span> 👋
+            Welcome, <span th:text="${loggedInUser.name}">User</span> <i class="fa-regular fa-face-smile"></i>
         </h1>
         <p class="hero-sub">Browse premium rental rooms — search by location, date and type</p>
 
@@ -31,10 +32,10 @@
                 </div>
                 <div class="search-divider"></div>
                 <button type="button" class="btn btn-secondary" onclick="openFiltersModal()" style="background: transparent; color: var(--navy); border: none; font-weight: 600; padding: 0 1rem;">
-                    <span id="filterCountBtn">⚙️ Filters</span>
+                    <span id="filterCountBtn"><i class="fa-solid fa-gear"></i> Filters</span>
                 </button>
                 <div class="search-divider"></div>
-                <button type="submit" class="search-btn">🔍 Search</button>
+                <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
             </div>
 
             <!-- FILTERS MODAL -->
@@ -74,72 +75,72 @@
                         <div class="facilities-grid">
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="fullyFurnished" th:checked="${facilities != null and facilities.contains('fullyFurnished')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>Fully Furnished</span>
                             </label>
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="wifiIncluded" th:checked="${facilities != null and facilities.contains('wifiIncluded')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>WiFi Included</span>
                             </label>
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="airCond" th:checked="${facilities != null and facilities.contains('airCond')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>Air Conditioning</span>
                             </label>
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="digitalDoorLock" th:checked="${facilities != null and facilities.contains('digitalDoorLock')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>Digital Door Lock</span>
                             </label>
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="carPark" th:checked="${facilities != null and facilities.contains('carPark')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>Car Park</span>
                             </label>
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="privateBathroom" th:checked="${facilities != null and facilities.contains('privateBathroom')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>Private Bathroom</span>
                             </label>
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="sharedBathroom" th:checked="${facilities != null and facilities.contains('sharedBathroom')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>Shared Bathroom</span>
                             </label>
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="utilitiesIncluded" th:checked="${facilities != null and facilities.contains('utilitiesIncluded')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>Utilities Included</span>
                             </label>
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="cookingAllowed" th:checked="${facilities != null and facilities.contains('cookingAllowed')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>Cooking Allowed</span>
                             </label>
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="petsAllowed" th:checked="${facilities != null and facilities.contains('petsAllowed')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>Pets Allowed</span>
                             </label>
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="noOwnerStays" th:checked="${facilities != null and facilities.contains('noOwnerStays')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>No Owner Stays</span>
                             </label>
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="serviceResidence" th:checked="${facilities != null and facilities.contains('serviceResidence')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>Service Residence</span>
                             </label>
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="waterHeater" th:checked="${facilities != null and facilities.contains('waterHeater')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>Water Heater</span>
                             </label>
                             <label class="facility-item">
                                 <input type="checkbox" name="facilities" value="washingMachine" th:checked="${facilities != null and facilities.contains('washingMachine')}"/>
-                                <span class="facility-check">✓</span>
+                                <span class="facility-check"><i class="fa-solid fa-check"></i></span>
                                 <span>Washing Machine</span>
                             </label>
                         </div>
@@ -210,19 +211,20 @@
                    class="wishlist-heart"
                    th:classappend="${wishlistRoomIds.contains(room.id)} ? ' saved' : ''"
                    onclick="event.stopPropagation();">
-                    <span th:text="${wishlistRoomIds.contains(room.id)} ? '❤️' : '🤍'">🤍</span>
+                    <i th:class="${wishlistRoomIds.contains(room.id)} ? 'fa-solid fa-heart' : 'fa-regular fa-heart'"></i>
                 </a>
 
                 <a th:href="@{/rooms/{id}(id=${room.id})}" class="room-card">
-                    <div class="room-card-img">
-                        <span class="room-type-badge" th:text="${room.type}">Type</span>
+                    <div class="room-card-img" style="position: relative; overflow: hidden;">
+                        <img th:src="@{/images/room.jpeg}" alt="Room Image" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+                        <span class="room-type-badge" style="position: relative; z-index: 1;" th:text="${room.type}">Type</span>
                     </div>
                     <div class="room-card-body">
                         <h3 class="room-card-title" th:text="${room.title}">Title</h3>
                         <p class="room-card-location">
-                            📍 <span th:text="${room.location}">Location</span>
+                            <i class="fa-solid fa-location-dot"></i> <span th:text="${room.location}">Location</span>
                         </p>
-                        <p class="room-card-desc" th:text="${room.description}">Description</p>
+                        <p class="room-card-desc" th:classappend="${room.description == null or room.description.isEmpty()} ? 'text-muted' : ''" th:text="${room.description != null and !room.description.isEmpty()} ? ${room.description} : 'There is no description for this room yet.'"></p>
                         <div class="room-card-footer">
                             <div class="room-card-price">
                                 RM <span th:text="${room.price}">0</span>
@@ -354,9 +356,9 @@
         
         const btnTextSpan = document.getElementById('filterCountBtn');
         if (count > 0) {
-            btnTextSpan.textContent = '⚙️ Filters (' + count + ')';
+            btnTextSpan.innerHTML = '<i class="fa-solid fa-gear"></i> Filters (' + count + ')';
         } else {
-            btnTextSpan.textContent = '⚙️ Filters';
+            btnTextSpan.innerHTML = '<i class="fa-solid fa-gear"></i> Filters';
         }
     }
     

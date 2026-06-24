@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>RoomEstate — My Appointments</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
@@ -17,14 +18,13 @@
     <!-- PAGE HEADER -->
     <div class="page-header">
         <h1 class="page-title">My <span>Appointments</span></h1>
-        <a href="/dashboard" class="btn btn-secondary">← Back to Dashboard</a>
     </div>
 
     <!-- CONFIRM SUCCESS POPUP -->
     <div class="popup-overlay" id="confirmPopup"
          th:if="${param.confirmed}" onclick="closeConfirmPopup()">
         <div class="popup-box" onclick="event.stopPropagation()">
-            <div class="popup-icon">✅</div>
+            <div class="popup-icon"><i class="fa-solid fa-circle-check"></i></div>
             <h3 class="popup-title">Appointment Confirmed!</h3>
             <p class="popup-msg">
                 The appointment has been successfully confirmed.
@@ -41,7 +41,7 @@
     <div class="popup-overlay" id="rejectPopup"
          th:if="${param.rejected}" onclick="closeRejectPopup()">
         <div class="popup-box" onclick="event.stopPropagation()">
-            <div class="popup-icon">❌</div>
+            <div class="popup-icon"><i class="fa-solid fa-circle-xmark"></i></div>
             <h3 class="popup-title">Appointment Rejected</h3>
             <p class="popup-msg">
                 The appointment has been rejected and the tenant
@@ -58,13 +58,13 @@
     <div class="tab-toggle">
         <button class="tab-btn active" id="bookingsTab"
                 onclick="switchTab('bookings')">
-            📅 My Bookings
+            <i class="fa-regular fa-calendar-check"></i> My Bookings
             <span class="tab-count"
                   th:text="${myBookings.size()}">0</span>
         </button>
         <button class="tab-btn" id="incomingTab"
                 onclick="switchTab('incoming')">
-            📬 Incoming Requests
+            <i class="fa-solid fa-inbox"></i> Incoming Requests
             <span class="tab-count"
                   th:text="${incomingRequests.size()}">0</span>
         </button>
@@ -85,7 +85,7 @@
                     </div>
                     <div>
                         <p class="viewing-time">
-                            🕐 <span th:text="${#temporals.format(apt.dateTime, 'hh:mm a')}">10:00 AM</span>
+                            <i class="fa-regular fa-clock"></i> <span th:text="${#temporals.format(apt.dateTime, 'hh:mm a')}">10:00 AM</span>
                         </p>
                         <span class="badge"
                               th:classappend="${apt.status == 'Confirmed'} ? 'badge-confirmed' :
@@ -103,35 +103,35 @@
                          style="margin-bottom:0.5rem;">
         <span style="background:var(--mint-pale); color:var(--mint-dark);
                      padding:2px 10px; border-radius:50px; font-size:0.7rem; font-weight:700;">
-            👑 YOUR ROOM
+            <i class="fa-solid fa-crown"></i> YOUR ROOM
         </span>
                     </div>
                     <div class="viewing-info-row">
-                        <span class="viewing-info-label">🏠 Room</span>
+                        <span class="viewing-info-label"><i class="fa-solid fa-house"></i> Room</span>
                         <span class="viewing-info-value"
                               th:text="${apt.room.title}">Room</span>
                     </div>
                     <div class="viewing-info-row" th:if="${apt.room.owner.id == loggedInUser.id}">
-                        <span class="viewing-info-label">👤 Tenant</span>
+                        <span class="viewing-info-label"><i class="fa-solid fa-user"></i> Tenant</span>
                         <a th:href="@{/profile/user/{id}(id=${apt.tenant.id})}"
                            class="viewing-info-value"
                            style="color:#2bb87a; text-decoration:none !important;"
                            th:text="${apt.tenant.name}">Tenant</a>
                     </div>
                     <div class="viewing-info-row">
-                        <span class="viewing-info-label">📍 Location</span>
+                        <span class="viewing-info-label"><i class="fa-solid fa-location-dot"></i> Location</span>
                         <span class="viewing-info-value"
                               th:text="${apt.room.location}">Location</span>
                     </div>
                     <div class="viewing-info-row">
-                        <span class="viewing-info-label">💰 Price</span>
+                        <span class="viewing-info-label"><i class="fa-solid fa-money-bill"></i> Price</span>
                         <span class="viewing-info-value">
                                 RM <span th:text="${apt.room.price}">0</span>/month
                             </span>
                     </div>
                     <div class="viewing-info-row"
                          th:if="${apt.notes != null and !apt.notes.isEmpty()}">
-                        <span class="viewing-info-label">📝 Notes</span>
+                        <span class="viewing-info-label"><i class="fa-regular fa-note-sticky"></i> Notes</span>
                         <span class="viewing-info-value"
                               th:text="${apt.notes}">Notes</span>
                     </div>
@@ -141,12 +141,12 @@
                          style="padding:0.75rem; background:var(--danger-pale);
                                     border-radius:8px; margin-top:0.5rem;">
                         <p style="font-size:0.8rem; color:var(--danger); font-weight:600;">
-                            ❌ Rejected: <span th:text="${apt.rejectReason}">Reason</span>
+                            <i class="fa-solid fa-xmark"></i> Rejected: <span th:text="${apt.rejectReason}">Reason</span>
                         </p>
                         <div th:if="${apt.suggestedTimeFrom != null}"
                              style="margin-top:0.5rem;">
                             <p style="font-size:0.8rem; color:var(--warning); font-weight:600;">
-                                📅 Owner suggested:
+                                <i class="fa-regular fa-calendar"></i> Owner suggested:
                                 <span th:text="${#temporals.format(apt.suggestedTimeFrom, 'dd MMM yyyy, hh:mm a')}"></span>
                                 —
                                 <span th:text="${#temporals.format(apt.suggestedTimeTo, 'dd MMM yyyy, hh:mm a')}"></span>
@@ -170,7 +170,7 @@
 
         <!-- EMPTY STATE -->
         <div class="empty-state" th:if="${myBookings.isEmpty()}">
-            <div class="empty-icon">📅</div>
+            <div class="empty-icon"><i class="fa-regular fa-calendar-xmark"></i></div>
             <p>You have no bookings yet. Browse rooms and book a viewing!</p>
             <a href="/dashboard" class="btn btn-primary">Browse Rooms</a>
         </div>
@@ -233,13 +233,13 @@
                                class="btn btn-primary"
                                style="padding:0.4rem 0.9rem; font-size:0.8rem;"
                                onclick="return confirm('Confirm this appointment?')">
-                                ✅ Confirm
+                                <i class="fa-solid fa-check"></i> Confirm
                             </a>
                             <!-- REJECT -->
                             <a th:if="${apt.status == 'Pending'}"
                                th:href="@{/appointments/reject/{id}(id=${apt.id})}"
                                class="btn btn-danger">
-                                ❌ Reject
+                                <i class="fa-solid fa-xmark"></i> Reject
                             </a>
                         </div>
                     </td>
@@ -250,7 +250,7 @@
 
         <!-- EMPTY STATE -->
         <div class="empty-state" th:if="${incomingRequests.isEmpty()}">
-            <div class="empty-icon">📭</div>
+            <div class="empty-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
             <p>No incoming appointment requests yet.</p>
             <a href="/rooms/my-rooms" class="btn btn-primary">View My Rooms</a>
         </div>

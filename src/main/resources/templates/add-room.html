@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>RoomEstate — Add Room</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
@@ -20,7 +21,6 @@
             <span th:if="${room.id == null}">Add New <span>Room</span></span>
             <span th:if="${room.id != null}">Edit <span>Room</span></span>
         </h1>
-        <a href="/rooms/my-rooms" class="btn btn-secondary">← Back to My Rooms</a>
     </div>
 
     <div class="form-card" style="max-width:900px;">
@@ -207,7 +207,7 @@
                     <span th:if="${room.id == null}">+ Save Room</span>
                     <span th:if="${room.id != null}">Update Room</span>
                 </button>
-                <a href="/rooms/my-rooms" class="btn btn-secondary">Cancel</a>
+                <a href="#" onclick="if(document.referrer) { window.history.back(); } else { window.location.href = '/dashboard'; } return false;" class="btn btn-secondary">Cancel</a>
             </div>
 
         </form>

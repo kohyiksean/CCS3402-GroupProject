@@ -991,9 +991,9 @@ tbody td:first-child { color: var(--navy); font-weight: 600; }
 .room-detail-meta {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid var(--grey-light);
 }
 
@@ -1004,7 +1004,16 @@ tbody td:first-child { color: var(--navy); font-weight: 600; }
 }
 
 .room-meta-label { color: var(--grey-mid); font-weight: 500; }
+.room-meta-label i { width: 20px; text-align: center; margin-right: 6px; }
 .room-meta-value { color: var(--navy); font-weight: 600; }
+
+.room-detail-info .form-group {
+    margin-bottom: 2rem;
+}
+
+.room-detail-info .form-group:last-child {
+    margin-bottom: 0;
+}
 
 /* ── BOOKING FORM ── */
 .booking-card {
@@ -1274,6 +1283,14 @@ tbody td:first-child { color: var(--navy); font-weight: 600; }
 
 .wishlist-heart.saved {
     background: white;
+}
+
+.wishlist-heart i {
+    color: var(--grey-mid);
+}
+
+.wishlist-heart.saved i {
+    color: var(--mint-dark);
 }
 
 /* ── STATUS SELECT DROPDOWN ── */

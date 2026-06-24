@@ -5,13 +5,18 @@ xmlns:th="http://ww.thymeleaf.org">
 <nav th:fragment="navbar" class="navbar">
     <a href="/dashboard" class="navbar-brand">Home<span>Hive</span></a>
     <ul class="navbar-nav">
-        <li><a href="/dashboard">Home</a></li>
-        <li><a href="/wishlist">❤️ Wishlist</a></li>
-        <li><a href="/rooms/my-rooms">My Rooms</a></li>
-        <li><a href="/appointments/my">My Appointments</a></li>
-        <li><a href="/profile">👤 Profile</a></li>
-        <li><a href="/rooms/add" class="btn btn-primary">+ Add Room</a></li>
-        <li><a href="/logout" class="btn-logout">Logout</a></li>
+        <li><a href="/dashboard"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="/wishlist"><i class="fa-solid fa-heart"></i> Wishlist</a></li>
+        <li><a href="/rooms/my-rooms"><i class="fa-solid fa-door-open"></i> My Rooms</a></li>
+        <li><a href="/appointments/my"><i class="fa-solid fa-calendar-check"></i> My Appointments</a></li>
+        <li th:if="${session.loggedInUser != null}">
+            <a href="/profile"><i class="fa-solid fa-user"></i> <span th:text="${#strings.abbreviate(session.loggedInUser.name, 15)}">Profile</span></a>
+        </li>
+        <li th:unless="${session.loggedInUser != null}">
+            <a href="/profile"><i class="fa-solid fa-user"></i> Profile</a>
+        </li>
+        <li><a href="/rooms/add" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Room</a></li>
+        <li><a href="/logout" class="btn-logout"><i class="fa-solid fa-sign-out-alt"></i> Logout</a></li>
     </ul>
 </nav>
 </nav>
